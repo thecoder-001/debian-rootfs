@@ -1,3 +1,17 @@
+# CHANGE LOG
+This fork have made following changes to the original code:
+- Added support for `riscv64` architecture. To generate, run `sudo ./make-rootfs.sh riscv64 multistrap_debian-ports.conf`
+- Removed deprecated package `iproute`
+- Added packages `vim` `binutils` `file` `gcc` and `make`. If they are not wanted, remove them in `multistrap*.conf`
+
+## Note
+I experienced an error with the message
+```
+The following signatures couldn't be verified because the public key is not available
+```
+when using `multistrap`. According to [this report](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=908451), that is a bug in `multistrap`. [This patch](https://bugs.debian.org/cgi-bin/bugreport.cgi?att=1;bug=908451;filename=fix.patch;msg=10) can be applied to `$(which multistrap)` to fix it. 
+
+
 # debian-rootfs
 Generation of Debian rootfs for multiple architectures
 

@@ -22,6 +22,7 @@ qemu_static[powerpc]=qemu-ppc-static
 qemu_static[powerpcspe]=qemu-ppc-static
 qemu_static[ppc64el]=qemu-ppc64le-static
 qemu_static[s390x]=qemu-s390x-static
+qemu_static[riscv64]=qemu-riscv64-static
 
 print_archs() {
     echo "    - $host_arch"
