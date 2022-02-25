@@ -1,8 +1,14 @@
+<h1 align="center">⚠️</h1>
+<h3 align="center">Please prefer to use upstream repos </h3>
+<p align="center"> Testing repo</p>
+
 # CHANGE LOG
-This fork have made following changes to the original code:
-- Added support for `riscv64` architecture. To generate, run `sudo ./make-rootfs.sh riscv64 multistrap_debian-ports.conf`
-- Removed deprecated package `iproute`
-- Added packages `vim` `binutils` `file` `gcc` and `make`. If they are not wanted, remove them in `multistrap*.conf`
+This forked fork have made following changes to the original code:
+* Switched back to debian buster as MIPS big-endian support has been dropped.
+- From upstream:
+  - Added support for `riscv64` architecture. To generate, run `sudo ./make-rootfs.sh riscv64 multistrap_debian-ports.conf`
+  - Removed deprecated package `iproute`
+  - Added packages `vim` `binutils` `file` `gcc` and `make`. If they are not wanted, remove them in `multistrap*.conf`
 
 ## Note
 I experienced an error with the message
