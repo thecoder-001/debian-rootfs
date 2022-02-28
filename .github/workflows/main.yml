@@ -20,7 +20,6 @@ jobs:
       - name: Running build script
         shell: bash
         run: |
-          sudo chmod +x make-rootfs.sh 0-check-and-set.sh 1-create-rootfs.sh 2-configure-rootfs.sh 3-archive-rootfs.sh
           ./make-rootfs.sh mips
         
       - name: Uploading artifacts
