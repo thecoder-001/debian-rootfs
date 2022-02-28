@@ -20,7 +20,7 @@ jobs:
       - name: Running build script
         shell: bash
         run: |
-          ./make-rootfs.sh mips
+          sudo ./make-rootfs.sh mips
         
       - name: Uploading artifacts
         uses: actions/upload-artifact@v2
