@@ -14,7 +14,7 @@ jobs:
       - name: Patching multistrap
         run: |
           curl -L "https://bugs.debian.org/cgi-bin/bugreport.cgi?att=1;bug=908451;filename=fix.patch;msg=10" > fix.patch
-          patch -u $(which multistrap) -i fix.patch
+          sudo patch -u $(which multistrap) -i fix.patch
 
       # Change architecture here. Planning to add other archs later.
       - name: Running build script
