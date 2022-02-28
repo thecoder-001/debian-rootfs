@@ -1,0 +1,31 @@
+name: CI
+
+on: [ push, pull_request, workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Installing dependencies
+        run: sudo apt-get install -y multistrap binfmt-support qemu-user-static curl git
+        
+      - name: Patching multistrap
+        run: |
+          curl -L "https://bugs.debian.org/cgi-bin/bugreport.cgi?att=1;bug=908451;filename=fix.patch;msg=10" > fix.patch
+          patch -u $(which multistrap) -i fix.patch
+
+      # Change architecture here. Planning to add other archs later.
+      - name: Running build script
+        shell: bash
+        run: |
+          chmod +x make-rootfs.sh 0-check-and-set.sh 1-create-rootfs.sh 2-configure-rootfs.sh 3-archive-rootfs.sh
+          ./make-rootfs.sh mips
+        
+      - name: Uploading artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: rootfs
+          path: build/mips/*.tar.gz
+      
